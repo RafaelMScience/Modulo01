@@ -12,6 +12,12 @@ server.use(express.json());
 
 const users = ["Diego", "Claudio", "Victor"];
 
+server.use((req, res, next) => {
+  console.log("A requisicao foi chamada!");
+
+  return next();
+});
+
 server.get("/users", (req, res) => {
   return res.json(users);
 });
